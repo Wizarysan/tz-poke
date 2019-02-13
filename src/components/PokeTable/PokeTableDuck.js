@@ -1,6 +1,7 @@
 import axios from 'axios'
 import initialState from './../../store/initialState';
 import settings from './../../settings';
+import { Z_BUF_ERROR } from 'zlib';
 
 const CARDS_REQUEST = "CARDS_REQUEST";
 const CARDS_SUCCESS = "CARDS_SUCCESS";
@@ -25,7 +26,7 @@ export default function pokeTableReducer(state = initialState.cards, action) {
 export function cardsRequest() {
     return {type: CARDS_REQUEST}
 }
-export function cardsFailed() {
+export function cardsFail() {
     return {type: CARDS_FAIL}
 }
 export function cardsSuccess(cards) {
@@ -36,7 +37,11 @@ export function loadCards() {
         dispatch(cardsRequest())
         axios.get(settings.cardsApi)
         .then(res=> {
-            console.log(res)
+            console.log(res.data.cards)
+            dispatch(cardsSuccess(res.data.cards))
+        }).catch(err=>{
+            console.err(err)
+            dispatch(cardsFail())
         })
     }    
 }

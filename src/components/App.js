@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
+import { createGlobalStyle } from 'styled-components'
 
 import Home from './Home';
 import Loading from './Loading';
@@ -18,6 +19,12 @@ const AsyncNoMatch = importedComponent(
   }
 );
 
+const GlobalStyle = createGlobalStyle`
+  .pokemon__image {
+    max-height: 210px;
+  }
+`
+
 const App = () => {
   return (
     <Router>
@@ -26,7 +33,8 @@ const App = () => {
           <Route exact path="/" component={Home} />          
           <Route component={AsyncNoMatch} />
         </Switch>
-      </div>
+        <GlobalStyle/>
+      </div>      
     </Router>
   );
 };
