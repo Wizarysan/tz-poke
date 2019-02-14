@@ -3,8 +3,9 @@ import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
 import importedComponent from 'react-imported-component';
 import { createGlobalStyle } from 'styled-components'
 
-import Home from './Home';
 import Loading from './Loading';
+import PokeTable from './PokeTable/PokeTable.jsx';
+import SingleCard from './SingleCard/SingleCard.jsx';
 
 // const AsyncDynamicPAge = importedComponent(
 //   () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
@@ -30,7 +31,8 @@ const App = () => {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/" component={Home} />          
+          <Route exact path="/" component={PokeTable} />          
+          <Route path="/:id" component={SingleCard} />          
           <Route component={AsyncNoMatch} />
         </Switch>
         <GlobalStyle/>

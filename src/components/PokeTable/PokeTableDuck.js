@@ -1,7 +1,6 @@
 import axios from 'axios'
 import initialState from './../../store/initialState';
 import settings from './../../settings';
-import { Z_BUF_ERROR } from 'zlib';
 
 const CARDS_REQUEST = "CARDS_REQUEST";
 const CARDS_SUCCESS = "CARDS_SUCCESS";
@@ -37,10 +36,9 @@ export function loadCards() {
         dispatch(cardsRequest())
         axios.get(settings.cardsApi)
         .then(res=> {
-            console.log(res.data.cards)
             dispatch(cardsSuccess(res.data.cards))
         }).catch(err=>{
-            console.err(err)
+            console.error(err)
             dispatch(cardsFail())
         })
     }    

@@ -9,7 +9,7 @@ const PokeTableEntry = ({id, fields}) => {
         <tr className="pokemon__entry">
             {renderedFields}
             <td>
-                <Link to="/">Details</Link>
+                <Link to={'/'+id}>Details</Link>
             </td>
         </tr>
     );
