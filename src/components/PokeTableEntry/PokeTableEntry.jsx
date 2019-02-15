@@ -10,8 +10,8 @@ const PokeTableEntry = ({id, fields}) => {
             {renderedFields}
             <td className="center aligned">
                 <Link to={'/'+id}>
-                    <button class="ui right labeled icon basic primary button">
-                        <i class="arrow right icon"></i>
+                    <button className="ui right labeled icon basic primary button">
+                        <i className="arrow right icon"></i>
                         Details
                     </button>
                 </Link>

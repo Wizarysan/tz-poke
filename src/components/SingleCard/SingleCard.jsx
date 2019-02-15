@@ -48,11 +48,15 @@ class SingleCard extends Component {
                 <div className="ui grid">
                     <div className="four wide column">
                     <Link to="/">
-                        <button class="ui right labeled icon primary button">
-                            <i class="left arrow icon"></i>
+                        <button className="ui right labeled icon primary button">
+                            <i className="left arrow icon"></i>
                             Back
                         </button>
                     </Link>
+                    <button onClick={()=>this.props.actions.loadSingleCard(this.id)} className="ui right labeled icon button">
+                        <i className="sync icon"></i>
+                        Reload
+                    </button>
                         <h1>{name}</h1>
                         <img className="card__image" src={imageUrl} />
                     </div>

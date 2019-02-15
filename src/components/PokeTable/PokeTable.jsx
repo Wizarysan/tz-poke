@@ -7,10 +7,12 @@ import PokeTableEntry from '../PokeTableEntry/PokeTableEntry.jsx';
 import * as pokeTableActions from './PokeTableDuck'
 
 const TableWrapper = styled.div`  
-    padding: 30px;    
+    padding: 30px;
+    font-size: 1.2rem;    
 `
 
 class PokeTable extends Component {
+    
     componentDidMount(){
         if(this.props.cards.length === 0) this.props.actions.loadCards()
     }
@@ -24,10 +26,11 @@ class PokeTable extends Component {
             rarity: card.rarity,
             series: card.series
         }}/>)
+
         return (
             <TableWrapper>
-                <button onClick={this.props.actions.loadCards} class="ui right labeled primary icon button">
-                    <i class="sync icon"></i>
+                <button onClick={this.props.actions.loadCards} className="ui right labeled icon button">
+                    <i className="sync icon"></i>
                     Reload
                 </button>
                 <table className="ui celled table">
@@ -43,7 +46,7 @@ class PokeTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {this.props.loading ? <div class="ui active loader"></div> : entries}
+                    {this.props.loading ? <div className="ui active loader"></div> : entries}
                 </tbody>
                 </table>
             </TableWrapper>
