@@ -12,7 +12,7 @@ const TableWrapper = styled.div`
 
 class PokeTable extends Component {
     componentDidMount(){
-        this.props.actions.loadCards()
+        if(this.props.cards.length === 0) this.props.actions.loadCards()
     }
     
     render() {
@@ -26,7 +26,7 @@ class PokeTable extends Component {
         }}/>)
         return (
             <TableWrapper>
-                <button onClick={this.props.actions.loadCards} class="ui right labeled icon button">
+                <button onClick={this.props.actions.loadCards} class="ui right labeled primary icon button">
                     <i class="sync icon"></i>
                     Reload
                 </button>
@@ -39,10 +39,11 @@ class PokeTable extends Component {
                         <th>Type</th>
                         <th>Rarity</th>
                         <th>Series</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    {entries}
+                    {this.props.loading ? <div class="ui active loader"></div> : entries}
                 </tbody>
                 </table>
             </TableWrapper>
