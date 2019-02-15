@@ -41,7 +41,7 @@ class SingleCard extends Component {
         weaknesses ? weaknesses = <StackData name="Weaknesses" data={weaknesses}/> : null;
         types ? types = <StackData name="Types" data={types}/> : null;
 
-        if(this.props.loading) return <div class="ui active loader"></div>;
+        if(this.props.loading) return <div className="ui active loader"></div>;
 
         return (                      
             <Card>                
