@@ -6,8 +6,6 @@ import initialState from './store/initialState';
 import configureStore from './store/configStore';
 import App from './components/App';
 
-import './index.css';
-
 const store = configureStore(initialState);
 
 const render = Component =>

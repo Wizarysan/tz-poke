@@ -7,12 +7,6 @@ import Loading from './Loading';
 import PokeTable from './PokeTable/PokeTable.jsx';
 import SingleCard from './SingleCard/SingleCard.jsx';
 
-// const AsyncDynamicPAge = importedComponent(
-//   () => import(/* webpackChunkName:'DynamicPage' */ './DynamicPage'),
-//   {
-//     LoadingComponent: Loading
-//   }
-// );
 const AsyncNoMatch = importedComponent(
   () => import(/* webpackChunkName:'NoMatch' */ './NoMatch'),
   {

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
+import styled from 'styled-components';
 
 import PokeTableEntry from '../PokeTableEntry/PokeTableEntry.jsx';
 import * as pokeTableActions from './PokeTableDuck'
 
+const TableWrapper = styled.div`  
+    padding: 30px;    
+`
 
 class PokeTable extends Component {
     componentDidMount(){
@@ -21,8 +25,11 @@ class PokeTable extends Component {
             series: card.series
         }}/>)
         return (
-            <React.Fragment>
-                <div onClick={this.props.actions.loadCards}>Reload</div>
+            <TableWrapper>
+                <button onClick={this.props.actions.loadCards} class="ui right labeled icon button">
+                    <i class="sync icon"></i>
+                    Reload
+                </button>
                 <table className="ui celled table">
                 <thead>
                     <tr>
@@ -38,7 +45,7 @@ class PokeTable extends Component {
                     {entries}
                 </tbody>
                 </table>
-            </React.Fragment>
+            </TableWrapper>
         );
     }
 }

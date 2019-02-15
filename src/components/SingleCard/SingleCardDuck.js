@@ -33,7 +33,6 @@ export function loadSingleCard(id) {
         dispatch(cardRequest())
         axios.get(`${settings.cardsApi}/${id}`)
         .then(res=> {
-            console.log(res)
             dispatch(cardSuccess(res.data.card))
         }).catch(err=>{
             console.error(err)

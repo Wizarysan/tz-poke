@@ -8,8 +8,13 @@ const PokeTableEntry = ({id, fields}) => {
     return (
         <tr className="pokemon__entry">
             {renderedFields}
-            <td>
-                <Link to={'/'+id}>Details</Link>
+            <td className="center aligned">
+                <Link to={'/'+id}>
+                    <button class="ui right labeled icon basic primary button">
+                        <i class="arrow right icon"></i>
+                        Details
+                    </button>
+                </Link>
             </td>
         </tr>
     );
