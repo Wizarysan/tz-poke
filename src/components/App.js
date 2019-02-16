@@ -15,6 +15,17 @@ const AsyncNoMatch = importedComponent(
 );
 
 const GlobalStyle = createGlobalStyle`
+  .mobile-only {
+    display: none;
+  }
+  @media only screen and (max-width: 767px) {
+    .mobile-hidden {
+      display: none !important;
+    }
+    .mobile-only {
+      display: initial;
+    }
+  }
   .pokemon__image {
     max-height: 210px;
   }

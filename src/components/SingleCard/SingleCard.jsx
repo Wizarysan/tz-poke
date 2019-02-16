@@ -10,11 +10,14 @@ import * as singleCardActions from './SingleCardDuck'
 
 const Card = styled.div`  
     padding: 30px;
+    .grid {
+        max-width: 1150px;
+    }
     .card__image {
         max-width: 100%;
     }
     .card__details {
-        padding-top: 70px;
+        padding-top: 30px;
     }
     .Fire { color: #d10f0f; }
     .Water { color: #0564b0; }
@@ -45,8 +48,12 @@ class SingleCard extends Component {
 
         return (                      
             <Card>                
-                <div className="ui grid">
+                <div className="ui stackable two column grid">
                     <div className="four wide column">
+                        <h1>{name}</h1>
+                        <img className="card__image" src={imageUrl} />
+                    </div>
+                    <div className="column">
                     <Link to="/">
                         <button className="ui right labeled icon primary button">
                             <i className="left arrow icon"></i>
@@ -57,10 +64,6 @@ class SingleCard extends Component {
                         <i className="sync icon"></i>
                         Reload
                     </button>
-                        <h1>{name}</h1>
-                        <img className="card__image" src={imageUrl} />
-                    </div>
-                    <div className="six wide column">
                         <div className="card__details">
                             <p><b>HP:</b> {hp}</p>
                             {attacks}                            

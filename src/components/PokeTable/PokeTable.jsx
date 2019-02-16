@@ -34,7 +34,7 @@ class PokeTable extends Component {
                     Reload
                 </button>
                 <table className="ui celled table">
-                <thead>
+                <thead className="mobile-hidden">
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
